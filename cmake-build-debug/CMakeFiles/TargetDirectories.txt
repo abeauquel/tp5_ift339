@@ -1,3 +1,0 @@
-D:/OneDrive - USherbrooke/cours/IFT 339/TP/tp5/CodeDepart/cmake-build-debug/CMakeFiles/tp5_ift339.dir
-D:/OneDrive - USherbrooke/cours/IFT 339/TP/tp5/CodeDepart/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/OneDrive - USherbrooke/cours/IFT 339/TP/tp5/CodeDepart/cmake-build-debug/CMakeFiles/rebuild_cache.dir

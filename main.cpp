@@ -7,7 +7,6 @@
 
 #include "map.h"
 
-
 int main(){
 
     //Test du code

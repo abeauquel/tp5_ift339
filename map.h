@@ -11,7 +11,9 @@
 #include <string>
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
+using namespace std;
 /**
 * \ brief Classe map
 */
