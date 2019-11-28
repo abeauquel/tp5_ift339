@@ -1,6 +1,6 @@
 /**
 * \ file main.cpp
-* \ author Alexandre Beauquel
+* \ author Alexandre Beauquel, Joel Lemaire
 * \ brief Ce fichier contient des tests des opérations
 */
 
