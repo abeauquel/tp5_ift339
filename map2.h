@@ -31,6 +31,7 @@ template <typename Tclef, typename Tvaleur>
 template <typename Tclef, typename Tvaleur>
   size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
   /*... a effacer et completer ...*/
+  erase(c, APRES, nullptr);
   return 0;  
 }
 
