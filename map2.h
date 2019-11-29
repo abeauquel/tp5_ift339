@@ -22,7 +22,7 @@ template <typename Tclef, typename Tvaleur>
 }
 
 
-template <typename Tclef, typename Tvaleur>
+  template <typename Tclef, typename Tvaleur>
   typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j,const Tclef& c){
   /*... a effacer et completer ...*/
   return iterator();
@@ -49,7 +49,17 @@ template <typename Tclef, typename Tvaleur>
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
-  /*... a completer ...*/
+  noeud * temp = p->GAUCHE;
+  int ia= temp->INDICE;
+  int ib = p->INDICE;
+  int nib= -ia- std::max(0, -ia)- 1 + ib;
+  int nia= ia- std::max(0, -nib)- 1;
+  temp->INDICE = nia;
+  p->INDICE=nib;
+  p->GAUCHE = temp->DROITE;
+  temp->DROITE= p;
+  p=temp;
+
 }
 
 template <typename Tclef, typename Tvaleur>
