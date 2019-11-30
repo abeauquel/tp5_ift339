@@ -17,10 +17,9 @@
 
 template <typename Tclef, typename Tvaleur>
   typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tclef& c)const{
-  /*... a effacer et completer ...*/
-  noeud * noeud = APRES->GAUCHE;
 
-  while (noeud->CONTENU->first < c){
+  noeud * noeud = APRES->GAUCHE;
+  while (noeud->DROITE != nullptr && noeud->CONTENU->first < c){
       noeud= noeud->DROITE;
   }
   return iterator(noeud);
@@ -56,7 +55,9 @@ template <typename Tclef, typename Tvaleur>
 template <typename Tclef, typename Tvaleur>
   typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::erase(iterator i){
   /*... a effacer et completer ...*/
-  return iterator();
+  noeud * noeud = i.POINTEUR;
+  erase(noeud->CONTENU->first);
+  return iterator(noeud);
 }
 
 
