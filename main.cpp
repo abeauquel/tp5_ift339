@@ -12,11 +12,13 @@ int main(){
     //Test du code
     cout << "Test du main " << endl ;
     map<int,int> * m = new ::map<int,int>();
-    m->insert(1);
-    m->insert(2);
-    m->insert(3);
-    m->insert(4);
     m->insert(5);
+    m->insert(4);
+    m->insert(3);
+    m->insert(2);
+    m->insert(1);
+    m->afficher();
+    m->erase(5);
     m->afficher();
     //m->insert(4);
 //    map->insert(3);

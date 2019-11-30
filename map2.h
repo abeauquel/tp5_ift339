@@ -30,9 +30,22 @@ template <typename Tclef, typename Tvaleur>
 
 template <typename Tclef, typename Tvaleur>
   size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
-  /*... a effacer et completer ...*/
-  erase(c, APRES, nullptr);
-  return 0;  
+  noeud* p=APRES;
+  iterator it= find(c); //todo need lowerbound
+  noeud * aRemplacer= (it).POINTEUR;
+  if(aRemplacer->PARENT != nullptr){
+      aRemplacer=aRemplacer->PARENT;
+      while(aRemplacer->GAUCHE != nullptr){
+          aRemplacer=aRemplacer->GAUCHE;
+      }
+  } else{
+      aRemplacer= nullptr;
+  }
+
+    if(erase(c, p, aRemplacer)){
+        return 1;
+    }
+  return 0;
 }
 
 template <typename Tclef, typename Tvaleur>
