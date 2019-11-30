@@ -18,7 +18,12 @@
 template <typename Tclef, typename Tvaleur>
   typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tclef& c)const{
   /*... a effacer et completer ...*/
-  return iterator();
+  noeud * noeud = APRES->GAUCHE;
+
+  while (noeud->CONTENU->first < c){
+      noeud= noeud->DROITE;
+  }
+  return iterator(noeud);
 }
 
 
