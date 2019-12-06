@@ -16,39 +16,38 @@
 /////////////////////////////////////////////////
 
 template <typename Tclef, typename Tvaleur>
-  typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tclef& c)const{
+typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tclef& c)const{
 
-  noeud * noeud = APRES->GAUCHE;
-  while (noeud->DROITE != nullptr && noeud->CONTENU->first < c){
-      noeud= noeud->DROITE;
-  }
-  return iterator(noeud);
+    noeud * noeud = APRES->GAUCHE;
+    while (noeud->DROITE != nullptr && noeud->CONTENU->first < c){
+        noeud= noeud->DROITE;
+    }
+    return iterator(noeud);
 }
 
 
-  template <typename Tclef, typename Tvaleur>
-  typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j,const Tclef& c){
-  /*... a effacer et completer ...*/
-  //insert(c, APRES,  j)
-  return iterator();
+template <typename Tclef, typename Tvaleur>
+typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j,const Tclef& c){
+    /*... a effacer et completer ...*/
+    //insert(c, APRES,  j)
+    return iterator();
 }
 
 template <typename Tclef, typename Tvaleur>
-  size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
-  iterator aSupprimer= find(c); //todo need lowerbound
-  noeud * aRemplacer= new noeud();;
+size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
+    iterator aSupprimer= find(c); //todo need lowerbound
+    noeud * aRemplacer= new noeud();;
     if(erase(c, APRES->GAUCHE, aRemplacer)){
         return 1;
     }
-  return 0;
+    return 0;
 }
 
 template <typename Tclef, typename Tvaleur>
-  typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::erase(iterator i){
-  /*... a effacer et completer ...*/
-  noeud * noeud = i.POINTEUR;
-  erase(noeud->CONTENU->first);
-  return iterator(noeud);
+typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::erase(iterator i){
+    noeud * noeud = i.POINTEUR;
+    erase(noeud->CONTENU->first);
+    return iterator(noeud);
 }
 
 
@@ -65,10 +64,15 @@ void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
   int nib= -ia- std::max(0, -ia)- 1 + ib;
   int nia= ia- std::max(0, -nib)- 1;
   temp->INDICE = nia;
+  temp->PARENT=p->PARENT; //
   p->INDICE=nib;
   p->GAUCHE = temp->DROITE;
+  if(temp->DROITE != nullptr)
+    temp->DROITE->PARENT=p; //
   temp->DROITE= p;
+  p->PARENT=temp;
   p=temp;
+
 
 }
 
