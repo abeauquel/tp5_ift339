@@ -12,15 +12,14 @@ int main(){
     //Test du code
     cout << "Test du main " << endl ;
     map<int,int> * m = new ::map<int,int>();
-    m->insert(5);
-    m->insert(6);
-    m->insert(8);
-    m->insert(9);
-    m->lower_bound(7);
-    m->insert(4);
-    m->insert(3);
-    m->insert(2);
     m->insert(1);
+    m->insert(3);
+    m->insert(5);
+//    m->insert(9);
+//    m->insert(4);
+//    m->insert(3);
+//    m->insert(2);
+//    m->insert(1);
     m->afficher();
     m->erase(5);
     m->afficher();
@@ -32,10 +31,10 @@ int main(){
 //    map->insert(10);
 //    map->insert(5);
 //    map->insert(7);
-    map<int,int>::iterator it= m->begin();
+    //map<int,int>::iterator it= m->begin();
     //(*it).second=60;
     //(*m)[5]=65;
-    m->afficher();
+  //  m->afficher();
     return 0;
 
 }

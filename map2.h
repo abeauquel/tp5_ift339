@@ -29,24 +29,15 @@ template <typename Tclef, typename Tvaleur>
   template <typename Tclef, typename Tvaleur>
   typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j,const Tclef& c){
   /*... a effacer et completer ...*/
+  //insert(c, APRES,  j)
   return iterator();
 }
 
 template <typename Tclef, typename Tvaleur>
   size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
-  noeud* p=APRES;
-  iterator it= find(c); //todo need lowerbound
-  noeud * aRemplacer= (it).POINTEUR;
-  if(aRemplacer->PARENT != nullptr){
-      aRemplacer=aRemplacer->PARENT;
-      while(aRemplacer->GAUCHE != nullptr){
-          aRemplacer=aRemplacer->GAUCHE;
-      }
-  } else{
-      aRemplacer= nullptr;
-  }
-
-    if(erase(c, p, aRemplacer)){
+  iterator aSupprimer= find(c); //todo need lowerbound
+  noeud * aRemplacer= new noeud();;
+    if(erase(c, APRES->GAUCHE, aRemplacer)){
         return 1;
     }
   return 0;
