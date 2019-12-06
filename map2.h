@@ -81,12 +81,16 @@ void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
     noeud * temp = p->DROITE;
     int ia= temp->INDICE;
     int ib = p->INDICE;
-    int nib= -ia+ std::max(0, -ia) + ib;
-    int nia= -ia- std::max(0, -nib)- 1;
+    int nib= std::max(0, -ia)+1+ib;
+    int nia= std::max(0, -ia) + std::max(0,- nib) +ia +ib + 2;
 
     temp->INDICE = nia;
     p->INDICE=nib;
     p->DROITE = temp->GAUCHE;
+    temp->PARENT=p->PARENT; //
+
+    if(temp->GAUCHE != nullptr)
+        temp->GAUCHE->PARENT=p; //
     temp->GAUCHE= p;
     p=temp;
 }
