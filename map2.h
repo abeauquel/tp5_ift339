@@ -28,9 +28,19 @@ typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tcle
 
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j,const Tclef& c){
-    /*... a effacer et completer ...*/
-    //insert(c, APRES,  j)
-    return iterator();
+    iterator ret = iterator(j.POINTEUR);
+
+    // Si arbre vide
+    if (APRES->INDICE == 0) {
+        APRES->GAUCHE = new noeud(c, APRES);
+        APRES->INDICE = 1;
+        return iterator(APRES->GAUCHE);
+    }
+
+    bool isInserted = insert(c, APRES->GAUCHE, ret);
+
+
+    return ret;
 }
 
 template <typename Tclef, typename Tvaleur>

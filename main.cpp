@@ -25,9 +25,11 @@ int main(){
 //    m->insert(3);
 //    m->insert(2);
 //    m->insert(1);
+
     m->afficher();
- //   map<int,int>::iterator it= m->begin();
+   // map<int,int>::iterator it= m->find(1);
     //m->erase(1);
+    m->insert(m->find(6), 7);
     m->afficher();
 
 
